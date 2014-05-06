@@ -21,19 +21,26 @@ gulp.task('sass', function() {
     if(target === 'production')
         config.outputStyle = 'compressed';
 
-    gulp.src('app/style/style.scss')
+    return gulp.src('app/style/style.scss')
         .pipe(sass(config))
-        .pipe(gulp.dest('build/css/'))
+        .pipe(gulp.dest(outputDir + '/css/'))
         .pipe(reload());
 });
 
 gulp.task('lint', function() {
-    gulp.src('app/js/**/*.js')
+    return gulp.src('app/js/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
 });
 
+gulp.task('html', function() {
+    return gulp.src('app/index.html')
+        .pipe(gulp.dest(outputDir))
+        .pipe(reload());
+});
+
 gulp.task('watch', function() {
+    gulp.watch('app/*.html', ['html']);
     gulp.watch('app/js/**/*.js', ['lint']);
     gulp.watch('app/style/**/*.scss', ['sass']);
 });
