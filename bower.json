@@ -1,0 +1,21 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "author": "Resumo d.o.o",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16",
+    "inuitcss": "~5.0.1"
+  }
+}
